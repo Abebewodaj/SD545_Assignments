@@ -145,7 +145,7 @@ const App = () => {
           <li className="nav-title">
             <span className="nav-title-text">Comments</span>
             {/* Like */}
-            <span className="total-reply">{10}</span>
+            <span className="total-reply">{commentList.length}</span>      
           </li>
           <li className="nav-sort">
             {/* highlight class name： active */}
@@ -213,14 +213,10 @@ type ItemPropsType = {
   deleteCommentFunction: (rpid: number | string) => void;
   loggedInUser: { uid: string };
 };
-
-function Item_ChildComponent({
-  item,
-  deleteCommentFunction,
-  loggedInUser,
-}: ItemPropsType) {
-  const { rpid, user, content, ctime, like } = item;
-  //  const {} = user
+// {item,deleteCommentFunction,loggedInUser}:
+function Item_ChildComponent(props:ItemPropsType) {
+  const { item,deleteCommentFunction } = props;
+  
   return (
     <div className="reply-item" key={item.rpid}>
       {/* profile */}
