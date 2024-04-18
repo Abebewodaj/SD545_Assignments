@@ -18,9 +18,12 @@ export default function Footer(props:Props) {
   }
   
   const finishedTask = () => {
-    // const hasFinishedTasks = todos.map(todo => todo.done);
-    // if (hasFinishedTasks) {
-    deleteFinishedTask();
+    if(window.confirm('are you sure?')){
+      // const hasFinishedTasks = todos.map(todo => todo.done);
+      // if (hasFinishedTasks) {
+      deleteFinishedTask();
+    }
+    
   };
   return (
     <div className="todo-footer">

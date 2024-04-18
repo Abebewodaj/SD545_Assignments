@@ -21,7 +21,7 @@ export default function Header(props: props) {
       }
   return (
     <div className="todo-header">
-      <input type="text" ref={inputRef} onKeyUp={handleKeyEnter}placeholder="Enter task name!!!!"/>
+      <input type="text" ref={inputRef} onKeyDown={handleKeyEnter}placeholder="Enter task name!!!!"/>
     </div>
   );
 }

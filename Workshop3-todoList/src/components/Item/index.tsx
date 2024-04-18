@@ -15,8 +15,8 @@ export default function Item(props: Props) {
 
 
   const onChangeCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log('checked todo id:',id);
-    const item =e.currentTarget.checked; // returns boolean wether checked or not
+    // console.log('checked todo id:',id);
+    // const item =e.currentTarget.checked; // returns boolean wether checked or not
     updateTodo(id);
   };
  const deleteItemHandler = () => {
@@ -24,7 +24,7 @@ export default function Item(props: Props) {
   return (
     <li>
       <label>
-        {/* checked={done} => defaut checked will be items with done= true  */}
+        {/* checked={done} => default checked will be items with done= true  */}
         <input type="checkbox" onChange={onChangeCheckBox} checked={done} />
         <span>{name}</span>
       </label>

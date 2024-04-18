@@ -8,6 +8,9 @@ import { useEffect, useState } from 'react';
 import Todo from './TodoTypes';
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
+    // const r = ([todos.map(tod=>{console.log(tod.done)})]);
+    // console.log(r)
+
 
   useEffect(() => {
     async function getTodoList() {
@@ -26,7 +29,7 @@ function App() {
      const updateTodo = (id: string) => {
     const newTodos = todos!.map((todo => todo.id === id? { ...todo, done:!todo.done }:todo)); // not done to be done two ways change, if !done amke done vs
     setTodos(newTodos);
-    console.log('......',newTodos);
+    console.log('......',);
   };
   
      const checkedAll = (done: boolean) => {
@@ -38,7 +41,7 @@ function App() {
 
 
   const deleteTodo = (id: string) => {
-    const updatedTodos = todos.filter((todo => todo.id !== id)); // exluding (id:string ) from todos
+    const updatedTodos = todos.filter((todo => todo.id !== id)); // exluding the checked items id (id:string ) from todos
     console.log('todosss:',updatedTodos);
     setTodos(updatedTodos);
   };
@@ -48,12 +51,11 @@ function App() {
   //   setTodos(updatedTodos);
   // };
   const deleteFinishedTask = () => {
-    const updatedTodosForDelete = todos.filter((todo) => !todo.done); //todo.done === !true, false!!
+    const updatedTodosForDelete = todos.filter((todo) => todo.done === false); // only keep those done === false todos items
     //console.log('filter',updatedTodosForDelete);
     //  const hasFinishedTasks = todos.map(todo => todo.done);
-    //  if (hasFinishedTasks) {
-
-    setTodos(updatedTodosForDelete);
+     if (updatedTodosForDelete.length >= 1)  return;
+    setTodos(updatedTodosForDelete); //only keep those done === false todos items and set the state
   };
   return (
     <div className="todo-container">
